@@ -1,16 +1,20 @@
-import React, { useContext, useEffect } from 'react'
 import Carousel from '../components/Carousel'
-import { DataContext } from '../context/DataContext'
 import MidBanner from '../components/MidBanner'
 import Features from '../components/Features'
+import PromotionalBanner from '../components/PromotionalBanner'
+import StatsSection from '../components/StatsSection'
+import TestimonialsSection from '../components/TestimonialsSection'
 
 const Home = () => {
-  
+
   return (
     <div className='overflow-x-hidden'>
-      <Carousel/>
-      <MidBanner/>
-      <Features/>
+      <Carousel />
+      <PromotionalBanner />
+      <MidBanner />
+      <Features />
+      <StatsSection />
+      <TestimonialsSection />
     </div>
   )
 }
