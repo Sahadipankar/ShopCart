@@ -104,7 +104,7 @@ const StatsSection = () => {
     return (
         <section
             id="stats-section"
-            className="py-4 d-flex align-items-center justify-content-center ml-19"
+            className="py-4 d-flex align-items-center justify-content-center"
             style={{
                 background: 'transparent',
                 minHeight: '50vh'

@@ -94,12 +94,12 @@ const TestimonialsSection = () => {
             <Card.Body className="text-center p-4 position-relative d-flex flex-column align-items-center">
                 {/* Quote icon */}
                 <div
-                    className="position-absolute top-0 end-0 p-3"
+                    className="position-absolute top-0 end-0 p-3 -mb-1"
                     style={{
                         fontSize: '3rem',
                         color: '#f53347',
-                        opacity: 0.1,
-                        lineHeight: 1
+                        opacity: 0.3,
+                        lineHeight: 0.8
                     }}
                 >
                     "
@@ -172,7 +172,7 @@ const TestimonialsSection = () => {
     );
 
     return (
-        <section className="py-5 ml-19" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)' }}>
+        <section className="py-5" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)' }}>
             <Container>
                 <div className="text-center mb-5">
                     <div className="d-inline-block px-4 py-2 rounded-pill mb-3" style={{ background: '#f53347', color: 'white' }}>

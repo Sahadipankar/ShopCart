@@ -6,7 +6,7 @@ import { getData } from '../context/DataContext'
 const MobileFilter = ({ openFilter, setOpenFilter, search, setSearch, brand, setBrand, priceRange, setPriceRange, category, setCategory, handleBrandChange, handleCategoryChange }) => {
     const { categoryOnlyData, brandOnlyData } = getData()
 
-    const toggleFilter = ()=>{
+    const toggleFilter = () => {
         setOpenFilter(!openFilter)
     }
     return (
