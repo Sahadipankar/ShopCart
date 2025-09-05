@@ -72,11 +72,11 @@ const TestimonialsSection = () => {
 
     const TestimonialCard = ({ testimonial }) => (
         <Card
-            className="h-100 border-0 shadow-sm overflow-hidden testimonial-card"
+            className="h-100 border-0 shadow-sm overflow-hidden testimonial-card mx-2 mx-md-3"
             style={{
                 background: 'white',
-                margin: '1rem',
-                borderRadius: '20px',
+                margin: '0.5rem',
+                borderRadius: '15px',
                 transition: 'all 0.3s ease',
                 border: '1px solid #f0f0f0'
             }}
@@ -91,12 +91,12 @@ const TestimonialsSection = () => {
                 e.currentTarget.style.borderColor = '#f0f0f0';
             }}
         >
-            <Card.Body className="text-center p-4 position-relative d-flex flex-column align-items-center">
+            <Card.Body className="text-center p-3 p-md-4 position-relative d-flex flex-column align-items-center">
                 {/* Quote icon */}
                 <div
-                    className="position-absolute top-0 end-0 p-3 -mb-1"
+                    className="position-absolute top-0 end-0 p-2 p-md-3 -mb-1"
                     style={{
-                        fontSize: '3rem',
+                        fontSize: 'clamp(2rem, 5vw, 3rem)',
                         color: '#f53347',
                         opacity: 0.3,
                         lineHeight: 0.8
@@ -105,26 +105,26 @@ const TestimonialsSection = () => {
                     "
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-2 mb-md-3">
                     <img
                         src={testimonial.image}
                         alt={testimonial.name}
                         className="rounded-circle mx-auto d-block"
                         style={{
-                            width: '80px',
-                            height: '80px',
+                            width: 'clamp(60px, 15vw, 80px)',
+                            height: 'clamp(60px, 15vw, 80px)',
                             objectFit: 'cover',
-                            border: '3px solid #f53347'
+                            border: '2px solid #f53347'
                         }}
                     />
                 </div>
-                <div className="mb-3">
+                <div className="mb-2 mb-md-3">
                     {[...Array(5)].map((_, i) => (
                         <span
                             key={i}
                             style={{
                                 color: i < testimonial.rating ? '#ffc107' : '#e9ecef',
-                                fontSize: '1.2rem'
+                                fontSize: 'clamp(1rem, 3vw, 1.2rem)'
                             }}
                         >
                             ★
@@ -132,12 +132,12 @@ const TestimonialsSection = () => {
                     ))}
                 </div>
 
-                <blockquote className="mb-4">
+                <blockquote className="mb-3 mb-md-4">
                     <p
-                        className="text-muted mb-0"
+                        className="text-muted mb-0 px-2"
                         style={{
-                            fontSize: '1.1rem',
-                            lineHeight: 1.6,
+                            fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
+                            lineHeight: 1.5,
                             fontStyle: 'italic'
                         }}
                     >
@@ -146,22 +146,22 @@ const TestimonialsSection = () => {
                 </blockquote>
 
                 <div className="mb-2">
-                    <h6 className="fw-bold mb-1 text-2xl" style={{ color: '#0f0c29' }}>
+                    <h6 className="fw-bold mb-1" style={{ color: '#0f0c29', fontSize: 'clamp(1rem, 3vw, 1.2rem)' }}>
                         {testimonial.name}
                     </h6>
-                    <small className="text-muted d-block text-sm">
+                    <small className="text-muted d-block" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.9rem)' }}>
                         {testimonial.role} • {testimonial.location}
                     </small>
                 </div>
 
-                <div className="mt-3">
+                <div className="mt-2 mt-md-3">
                     <span
-                        className="badge px-3 py-2"
+                        className="badge px-2 px-md-3 py-1 py-md-2"
                         style={{
                             background: '#f53347',
                             color: 'white',
-                            borderRadius: '15px',
-                            fontSize: '0.85rem'
+                            borderRadius: '12px',
+                            fontSize: 'clamp(0.7rem, 2vw, 0.85rem)'
                         }}
                     >
                         ✓ Verified Purchase: {testimonial.product}
@@ -172,62 +172,64 @@ const TestimonialsSection = () => {
     );
 
     return (
-        <section className="py-5" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)' }}>
+        <section className="py-3 py-md-5" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)' }}>
             <Container>
-                <div className="text-center mb-5">
-                    <div className="d-inline-block px-4 py-2 rounded-pill mb-3" style={{ background: '#f53347', color: 'white' }}>
+                <div className="text-center mb-4 mb-md-5">
+                    <div className="d-inline-block px-3 px-md-4 py-2 rounded-pill mb-3" style={{ background: '#f53347', color: 'white', fontSize: '0.9rem' }}>
                         ⭐ Customer Reviews
                     </div>
-                    <h2 className="fw-bold mb-3" style={{ color: '#0f0c29', fontSize: '2.5rem' }}>
+                    <h2 className="fw-bold mb-3" style={{ color: '#0f0c29', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                         What Our Customers Say
                     </h2>
-                    <p className="text-muted lead mx-auto" style={{ maxWidth: '600px' }}>
+                    <p className="text-muted lead mx-auto px-3" style={{ maxWidth: '600px', fontSize: 'clamp(1rem, 2.5vw, 1.25rem)' }}>
                         Real feedback from real customers who trust us with their electronics needs
                     </p>
                 </div>
 
-                <Row className="g-4 justify-content-center">
+                <Row className="g-2 g-md-4 justify-content-center">
                     {getRandomTestimonials(testimonials, 3).map((testimonial) => (
-                        <Col key={testimonial.id} lg={4} md={6}>
+                        <Col key={testimonial.id} xs={12} sm={6} lg={4} className="d-flex">
                             <TestimonialCard testimonial={testimonial} />
                         </Col>
                     ))}
                 </Row>
 
-                <div className="text-center mt-5">
+                <div className="text-center mt-4 mt-md-5">
                     <div
-                        className="p-4 rounded-3 d-inline-block"
+                        className="p-3 p-md-4 rounded-3 d-inline-block mx-2"
                         style={{
                             background: 'white',
                             border: '2px solid #f53347',
-                            borderRadius: '20px'
+                            borderRadius: '15px',
+                            maxWidth: '100%'
                         }}
                     >
-                        <div className="d-flex justify-content-center align-items-center flex-wrap gap-4">
+                        <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 gap-md-4">
                             <div className="text-center">
-                                <div className="h4 mb-0 fw-bold" style={{ color: '#f53347' }}>4.8★</div>
-                                <small className="text-muted">Average Rating</small>
+                                <div className="fw-bold" style={{ color: '#f53347', fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }}>4.8★</div>
+                                <small className="text-muted" style={{ fontSize: 'clamp(0.7rem, 2vw, 0.9rem)' }}>Average Rating</small>
                             </div>
                             <div className="text-center">
-                                <div className="h4 mb-0 fw-bold" style={{ color: '#f53347' }}>50,000+</div>
-                                <small className="text-muted">Happy Customers</small>
+                                <div className="fw-bold" style={{ color: '#f53347', fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }}>50,000+</div>
+                                <small className="text-muted" style={{ fontSize: 'clamp(0.7rem, 2vw, 0.9rem)' }}>Happy Customers</small>
                             </div>
                             <div className="text-center">
-                                <div className="h4 mb-0 fw-bold" style={{ color: '#f53347' }}>98%</div>
-                                <small className="text-muted">Satisfaction Rate</small>
+                                <div className="fw-bold" style={{ color: '#f53347', fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }}>98%</div>
+                                <small className="text-muted" style={{ fontSize: 'clamp(0.7rem, 2vw, 0.9rem)' }}>Satisfaction Rate</small>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="text-center mt-4">
+                <div className="text-center mt-3 mt-md-4">
                     <button
-                        className="btn btn-outline-primary px-4 py-2"
+                        className="btn btn-outline-primary px-3 px-md-4 py-2"
                         style={{
                             borderColor: '#f53347',
                             color: '#f53347',
-                            borderRadius: '25px',
-                            fontWeight: '600'
+                            borderRadius: '20px',
+                            fontWeight: '600',
+                            fontSize: 'clamp(0.85rem, 2.5vw, 1rem)'
                         }}
                         onMouseEnter={(e) => {
                             e.target.style.backgroundColor = '#f53347';

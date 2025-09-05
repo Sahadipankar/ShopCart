@@ -5,12 +5,15 @@ import Products from './pages/Products'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Cart from './pages/Cart'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SingleProduct from './pages/SingleProduct'
 import CategoryProduct from './pages/CategoryProduct'
 import { useCart } from './context/CartContext'
 import ProtectedRoute from './components/ProtectedRoute'
+import RedirectIfSignedIn from './components/RedirectIfSignedIn'
 import axios from 'axios'
 
 
@@ -47,7 +50,7 @@ const App = () => {
   //Load cart from local storage on initial render
   useEffect(() => {
     const storedCart = localStorage.getItem('cartItem')
-    if(storedCart){
+    if (storedCart) {
       setCartItem(JSON.parse(storedCart))
     }
   }, []);
@@ -67,6 +70,8 @@ const App = () => {
         <Route path='/category/:category' element={<CategoryProduct />}></Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
+        <Route path='/signin' element={<RedirectIfSignedIn><SignIn /></RedirectIfSignedIn>}></Route>
+        <Route path='/signup' element={<RedirectIfSignedIn><SignUp /></RedirectIfSignedIn>}></Route>
         <Route path='/cart' element={<ProtectedRoute>
           <Cart location={location} getLocation={getLocation} />
         </ProtectedRoute>}></Route>

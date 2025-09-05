@@ -52,7 +52,11 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
                     </Link>
                     <div className='hidden md:block'>
                         <SignedOut>
-                            <SignInButton className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer" />
+                            <Link to="/signin">
+                                <button className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer hover:bg-red-600 transition duration-300">
+                                    Sign In
+                                </button>
+                            </Link>
                         </SignedOut>
                         <SignedIn>
                             <UserButton />
