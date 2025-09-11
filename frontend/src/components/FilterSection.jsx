@@ -32,7 +32,7 @@ const FilterSection = ({ search, setSearch, brand, setBrand, priceRange, setPric
                 onChange={handleBrandChange}
             >
                 {
-                    brandOnlyData?.map((item, index) => {
+                    brandOnlyData?.filter(item => item && typeof item === 'string').map((item, index) => {
                         return <option key={index} value={item}>{item.toUpperCase()}</option>
                     })
                 }
